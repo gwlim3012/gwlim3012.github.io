@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gyuwon Lim | Profile</title>
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text-main: #111827;
+      --text-sub: #374151;
+      --text-muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+    a:hover { color: var(--accent); }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    /* ---- HEADER ---- */
+    header { margin-bottom: 60px; }
+
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-sub);
+      background-color: #f3f4f6;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .btn-link:hover {
+      background-color: #e5e7eb;
+      color: var(--text-main);
+    }
+    .btn-link svg { width: 16px; height: 16px; }
+
+    /* ---- SECTIONS ---- */
+    section { margin-bottom: 64px; }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--text-main);
+    }
+
+    /* ---- EDUCATION ---- */
+    .info-block { margin-bottom: 32px; }
+    
+    .info-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+    .info-sub { font-size: 15px; color: var(--text-sub); }
+    .info-meta { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+    /* ---- RESEARCH INTERESTS ---- */
+    .interest-list {
+      list-style: none;
+      padding: 0;
+    }
+    .interest-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 16px;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .interest-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    /* ---- EXPERIENCE ---- */
+    .exp-item {
+      padding-left: 20px;
+      border-left: 2px solid #f3f4f6;
+      margin-bottom: 48px;
+    }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .role-title { font-size: 17px; font-weight: 700; display: block; }
+    .role-meta { 
+      font-size: 14px; color: var(--text-muted); 
+      margin-bottom: 10px; display: block; margin-top: 4px;
+    }
+    
+    .desc-list { list-style: none; padding: 0; }
+    .desc-list li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+    .desc-list li::before {
+      content: "•"; position: absolute; left: 0; color: var(--text-muted);
+    }
+
+    /* ---- PROJECTS ---- */
+    .project-item {
+      margin-bottom: 48px;
+    }
+    .project-item:last-child { margin-bottom: 0; }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .project-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .project-name:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 99px;
+      background: #f3f4f6;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-stack {
+      font-family: Consolas, monospace;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* ---- AWARDS ---- */
+    .award-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f9fafb;
+      padding-bottom: 16px;
+    }
+    .award-item:last-child { border-bottom: none; }
+
+    .award-info strong { font-size: 16px; font-weight: 600; display: block; margin-bottom: 4px; color: var(--text-main); }
+    .award-info span { font-size: 14px; color: var(--text-sub); line-height: 1.5; }
+    
+    .award-rank { text-align: right; min-width: 140px; }
+    .rank-main { font-size: 15px; font-weight: 700; color: var(--accent); }
+    .rank-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+    .award-date { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      .award-item { flex-direction: column; gap: 8px; }
+      .award-rank { text-align: left; margin-top: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Gyuwon Lim</h1>
+    
+    <div class="links">
+      <a href="https://github.com/gwlim3012" target="_blank" class="btn-link">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://gwlim3012.tistory.com" target="_blank" class="btn-link">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"/></svg>
+        Blog
+      </a>
+      <a href="mailto:gwlim3012@gmail.com" class="btn-link">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
+        Email
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Education</h2>
+    <div class="info-block">
+      <div class="info-title">Undergraduate Student in Applied Artificial Intelligence (4th Year)</div>
+      <div class="info-sub">Minor in Intelligent Semiconductor Engineering</div>
+      <div class="info-meta">Seoul National University of Science and Technology (SeoulTech)</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Research Interests</h2>
+    <ul class="interest-list">
+      <li>Model Compression (Knowledge Distillation, Quantization)</li>
+      <li>On-device AI</li>
+      <li>Efficient & Adaptive Deep Learning Systems</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="exp-item">
+      <span class="role-title">Undergraduate Research Intern</span>
+      <span class="role-meta">EIS Lab, Yonsei University · December 2025 – Present</span>
+      <ul class="desc-list">
+        <li>Studying model compression methods including knowledge distillation and quantization.</li>
+        <li>Conducting research on efficient SLM optimization under deployment-level compute constraints.</li>
+        <li>Recently, also interested in Energy-efficient Real-time DNN systems.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <span class="role-title">23rd Member</span>
+      <span class="role-meta">ToBig's (AI & Big Data Club) · February 2025 – January 2026</span>
+      <ul class="desc-list">
+        <li>Collaborated in a cross-university AI research community, focusing on CV and NLP.</li>
+        <li>Designed the educational curriculum for Data Analysis and AI basics as an Education Team member.</li>
+        <li>Experienced the full project lifecycle from problem definition to implementation.</li>
+      </ul>
+    </div>
+
+  <div class="exp-item">
+      <span class="role-title">LG Aimers (5th–7th)</span>
+      <span class="role-meta">LG AI Research · July 2024 – September 2025</span>
+      <ul class="desc-list">
+        <li>Analyzed industrial datasets and engineered preprocessing pipelines for predictive modeling tasks.</li>
+        <li>Designed and implemented ML/DL models, including Gradient Boosting and CNN-LSTM, for process performance prediction.</li>
+        <li>Advanced to the Hackathon Finals by improving forecasting accuracy through feature engineering and model tuning.</li>
+      </ul>
+    </div>
+
+  <div class="exp-item">
+      <span class="role-title">Teaching Assistant</span>
+      <span class="role-meta">SeoulTech (Computational Thinking & AI) · March 2025 – Present</span>
+      <ul class="desc-list">
+        <li>Mentoring students in Python programming and fundamental AI concepts.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="project-item">
+      <div class="project-header">
+        <a href="https://github.com/gwlim3012/Pi-FIRI" target="_blank" class="project-name">Pi-FiRI: Pi–Based Intelligent Fire Detection Robot</a>
+        <span class="badge">Team</span>
+      </div>
+      <ul class="desc-list">
+        <li>Developed a raspberry pi-based patrol robot with ArUco marker-based location tracking and real time fire/smoke detection.</li>
+        <li>Implemented an automated reporting system using Upstage Solar LLM for situation summaries and alerts.</li>
+      </ul>
+      <div class="project-stack">Raspberry Pi · LLM API · ArUco · TFLite · Streamlit</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <a href="https://github.com/gwlim3012/Curat3R" target="_blank" class="project-name">Curat3R: Single-Image to 3D Reconstruction Service</a>
+        <span class="badge">Team</span>
+      </div>
+      <ul class="desc-list">
+        <li>Built an end-to-end pipeline that converts a single photo into a 3D asset with quality gating.</li>
+        <li>Implemented a web gallery for interactive viewing and lightweight archiving of generated 3D artifacts.</li>
+      </ul>
+      <div class="project-stack">Python · PyTorch (SPAR3D, TRELLIS 2, CLIP) · Flask · Three.js</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-name">Regional Dialect ASR with STT & LLM</span>
+        <span class="badge">Capstone</span>
+        <span class="badge" style="background-color:#eff6ff; color:#2563eb;">In Progress</span>
+      </div>
+      <ul class="desc-list">
+        <li>Developing a robust speech recognition pipeline specialized for Korean regional dialects.</li>
+        <li>Leveraging LLM-based post-editing to minimize Word Error Rate (WER) and preserve the semantic integrity of Korean dialects.</li>
+      </ul>
+      <div class="project-stack">Python · PyTorch · Whisper · LLM Fine-tuning · Hugging Face</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <a href="https://github.com/gwlim3012/EEG-Classification-Visualization" target="_blank" class="project-name">EEG Analysis & Visualization</a>
+        <span class="badge">Side</span>
+      </div>
+      <ul class="desc-list">
+        <li>Extracted frequency-domain features from EEG signals to train a classifier for alcoholic prediction.</li>
+        <li>Created an interactive 3D visualization to explore feature patterns intuitively.</li>
+      </ul>
+      <div class="project-stack">Python · SciPy · Plotly · Streamlit · scikit-learn</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <a href="https://github.com/gwlim3012/Subway-Route-Finder" target="_blank" class="project-name">Seoul Metro Router</a>
+        <span class="badge">Side</span>
+      </div>
+      <ul class="desc-list">
+        <li>Implemented a shortest-path route finder using Dijkstra's algorithm on Seoul Metro data.</li>
+        <li>Built a UI supporting natural-language queries with route commentary via LLM API.</li>
+      </ul>
+      <div class="project-stack">Graph Algorithms · LLM API · Streamlit</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Honors & Awards</h2>
+
+    <div class="award-item">
+      <div class="award-info">
+        <strong>
+          <a href="https://github.com/gwlim3012/AI-COSS-hackathon" target="_blank" class="award-link">
+            AI COSS × A.ing × Lailac Hackathon
+          </a>
+        </strong>
+        <span>Domain Generalization for Object Detection (Satellite Imagery)</span>
+      </div>
+      <div class="award-rank">
+        <div class="rank-main">1st Place</div>
+        <div class="rank-sub">Grand Prize</div>
+        <div class="award-date">November 2025</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-info">
+        <strong>LG Aimers 7th Hackathon</strong>
+        <span>Demand Forecasting AI for F&B Services</span>
+      </div>
+      <div class="award-rank">
+        <div class="rank-main">5th Place</div>
+        <div class="rank-sub">Final Round</div>
+        <div class="award-date">September 2025</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-info">
+        <strong>
+          <a href="https://github.com/gwlim3012/Mixup_Dataton" target="_blank" class="award-link">
+            1st MixUP AI Datathon (Upstage)
+          </a>
+        </strong>
+        <span>Prompt Engineering using Upstage SOLAR API</span>
+      </div>
+      <div class="award-rank">
+        <div class="rank-main">3rd Place</div>
+        <div class="rank-sub">Excellence Award</div>
+        <div class="award-date">May 2025</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-info">
+        <strong>2nd MixUP AI Datathon (NIA)</strong>
+        <span>Piping Leak Level Regression using Acoustic/Vibration Data</span>
+      </div>
+      <div class="award-rank">
+        <div class="rank-main">5th Place</div>
+        <div class="rank-sub"></div>
+        <div class="award-date">November 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Gyuwon Lim
+  </footer>
+
+</div>
+
+</body>
+</html>
